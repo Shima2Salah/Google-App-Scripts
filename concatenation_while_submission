@@ -1,4 +1,4 @@
-tion onFormSubmit(e) {
+function onFormSubmit(e) {
  if (e) {
    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
    var range = e.range;
