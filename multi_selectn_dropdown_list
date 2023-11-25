@@ -1,0 +1,28 @@
+tion onEdit(e) {
+ var oldValue;
+ var newValue;
+ var ss=SpreadsheetApp.getActiveSpreadsheet();
+ var activeCell = ss.getActiveCell();
+ if(activeCell.getColumn() == 49 && ss.getActiveSheet().getName()=="variation") {
+  // Check if e is defined and contains the value property
+  if (e && e.value) {
+    newValue=e.value;
+    oldValue=e.oldValue;
+    if(!e.value) {
+      activeCell.setValue("");
+    }
+    else {
+      if (!e.oldValue) {
+        activeCell.setValue(newValue);
+      }
+      else {
+        activeCell.setValue(oldValue+'\n '+newValue);
+      }
+    }
+  } else {
+    // Log an error message if e is not defined or does not contain the value property
+    Logger.log('Error: e is not defined or does not contain the value property');
+  }
+ }
+}
+
