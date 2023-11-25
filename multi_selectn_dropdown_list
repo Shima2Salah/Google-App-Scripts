@@ -1,4 +1,4 @@
-tion onEdit(e) {
+function onEdit(e) {
  var oldValue;
  var newValue;
  var ss=SpreadsheetApp.getActiveSpreadsheet();
