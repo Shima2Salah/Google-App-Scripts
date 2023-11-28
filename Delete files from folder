@@ -1,0 +1,16 @@
+function deleteFilesInFolder() {
+  // Specify the folder URL
+  var folderUrl = "https://drive.google.com/drive/folders/folder_link";
+
+  // Get the folder ID from the URL
+  var folderId = folderUrl.match(/[-\w]{25,}/)[0];
+
+  // Get all files in the specified folder
+  var files = DriveApp.getFolderById(folderId).getFiles();
+
+  // Loop through each file and delete it
+  while (files.hasNext()) {
+    var file = files.next();
+    DriveApp.getFileById(file.getId()).setTrashed(true);
+  }
+}
